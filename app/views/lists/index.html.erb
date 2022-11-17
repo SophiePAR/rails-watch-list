@@ -1,0 +1,9 @@
+<div class="container">
+<h1>My lists</h1>
+<p><% @lists.each do |list| %>
+<%= list.name %>
+<% end %></p>
+
+<%= link_to "new list", new_list_path, class: "btn btn-primary justify-content-center"%>
+
+</div>

@@ -1,0 +1,13 @@
+<h1>My <%= @list.name %> List</h1>
+
+<p><% @list.movies.each do |movie| %>
+<%= movie.title %>
+<%= movie.overview %>
+<%= movie.poster_url %>
+<%= movie.rating %>
+<% end %> </p>
+
+<%= link_to "new movie", new_list_bookmark_path(@list), class: "btn btn-primary justify-content-center"%>
+<%= link_to "Delete movie", list_path(@list),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to "Go back to your lists", lists_path %>
