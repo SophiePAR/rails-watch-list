@@ -7,7 +7,12 @@
 <%= movie.rating %>
 <% end %> </p>
 
-<%= link_to "new movie", new_list_bookmark_path(@list), class: "btn btn-primary justify-content-center"%>
-<%= link_to "Delete movie", list_path(@list),
+<p><% @list.bookmarks.each do |bookmark| %>
+<%= bookmark.comment %>
+<%= link_to "Delete movie", bookmark_path(bookmark),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %> </p>
+
+<%= link_to "new movie", new_list_bookmark_path(@list), class: "btn btn-primary justify-content-center"%>
+
 <%= link_to "Go back to your lists", lists_path %>
